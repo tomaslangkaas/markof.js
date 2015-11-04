@@ -1,8 +1,35 @@
 # markof.js
 
-powerful lightweight markup language with lightweight parser
+powerful lightweight markup language & lightweight parser
 
 ## Easily create ...
+
+### standard markup
+
+```
+# Heading
+
+## Subheading
+
+Paragraph with *emphasized* & !!strong!! text.
+
+Another paragraph with `code` and ~small~ text.
+```
+which expands to
+```
+<h1>
+ Heading
+</h1>
+<h2>
+ Subheading
+</h2>
+<p>
+ Paragraph with <em>emphasized</em> &#38; <strong>strong</strong> text.
+</p>
+<p>
+ Another paragraph with <code>code</code> and <small>small</small> text.
+</p>
+```
 
 ### lists
 ```
