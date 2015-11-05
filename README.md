@@ -2,9 +2,9 @@
 
 powerful lightweight markup language & lightweight parser
 
-## Easily create ...
+## Easily convert ...
 
-### standard markup
+### this text
 
 ```
 # Heading
@@ -15,7 +15,7 @@ Paragraph with *emphasized* & !!strong!! text.
 
 Another paragraph with `code` and ~small~ text.
 ```
-which expands to
+to this HTML:
 ```
 <h1>
  Heading
@@ -38,7 +38,7 @@ which expands to
   2. Item 1.2
 2. Item 2
 ```
-expands to
+to
 ```
 <ol>
  <li value="1">
@@ -64,7 +64,7 @@ expands to
 |  John  |  45
 |  James |  53
 ```
-expands to
+to
 ```
 <table>
  <tr>
@@ -108,13 +108,13 @@ A paragraph.
 A blank line indicates a new paragraph,
 a single line break indicates just that.
 
-* Unordered list item
-  * List items are nested with 2 spaces for each level
+- Unordered list item
+  - List items are nested with 2 spaces for each level
 
 1. Ordered list item
 9. Ordered list item with value 9
   2. Item 9.2, ordered list items are also nested with 2 spaces for each level
-  *  Ordered an unordered list items can be mixed
+  -  Ordered an unordered list items can be mixed
 
 |  a table cell             |' left-aligned table header cell
 |. right-aligned table cell |, right-aligned table header cell
