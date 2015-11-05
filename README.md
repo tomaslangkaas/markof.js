@@ -3,17 +3,15 @@
 powerful lightweight markup language & lightweight parser
 
 ## Easily convert ...
-
-### this text
-
+this text with `markof` markup:
 ```
 # Heading
 
 ## Subheading
 
-Paragraph with *emphasized* & !!strong!! text.
+Paragraph with *emphasized* text.
 
-Another paragraph with `code` and ~small~ text.
+Another paragraph with !!strong language!!!
 ```
 to this HTML:
 ```
@@ -24,75 +22,13 @@ to this HTML:
  Subheading
 </h2>
 <p>
- Paragraph with <em>emphasized</em> &#38; <strong>strong</strong> text.
+ Paragraph with <em>emphasized</em> text.
 </p>
 <p>
- Another paragraph with <code>code</code> and <small>small</small> text.
+ Another paragraph with <strong>strong language</strong>!
 </p>
 ```
 
-### lists
-```
-1. Item 1
-  1. Item 1.1
-  2. Item 1.2
-2. Item 2
-```
-to
-```
-<ol>
- <li value="1">
-  Item 1
-  <ol>
-   <li value="1">
-    Item 1.1
-   </li>
-   <li value="2">
-    Item 1.2
-   </li>
-  </ol>
- </li>
- <li value="2">
-  Item 2
- </li>
-</ol>
-```
-
-### tables
-```
-|' Name  |' Age
-|  John  |  45
-|  James |  53
-```
-to
-```
-<table>
- <tr>
-  <th style="text-align:left;">
-   Name
-  </th>
-  <th style="text-align:left;">
-   Age
-  </th>
- </tr>
- <tr>
-  <td>
-   John
-  </td>
-  <td>
-   45
-  </td>
- </tr>
- <tr>
-  <td>
-   James
-  </td>
-  <td>
-   53
-  </td>
- </tr>
-</table>
-```
 ## Syntax cheat sheet
 
 ```
@@ -129,4 +65,12 @@ a single line break indicates just that.
 monospace block
 `
 
+Inline formating:
+- *emphasis*, 
+- !!strong!!,
+- ^superscript^,
+- _subscript_,
+- ~small~,
+- ++inserted++,
+- ==deleted==
 ```
