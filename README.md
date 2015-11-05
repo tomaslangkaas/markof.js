@@ -62,15 +62,25 @@ a single line break indicates just that.
 " blockquote
 
 `
-monospace block
+code block
 `
 
 Inline formating:
-- *emphasis*, 
-- !!strong!!,
-- ^superscript^,
-- _subscript_,
-- ~small~,
-- ++inserted++,
-- ==deleted==
+ *emphasis*
+ !!strong!!
+ `code`
+ ^superscript^
+ _subscript_
+ ~small~
+ ++inserted++
+ ==deleted==
+ <<quote with primary quotation marks>>
+ ``quote with secondary quotation marks''
+
+Apostrophe: '
+En dash: --
+Em dash: ---
+Ellipsis: ...
+
+Replaced with HTML entities: <>&/"'
 ```
