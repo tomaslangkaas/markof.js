@@ -61,9 +61,9 @@ a single line break indicates just that.
 
 " blockquote
 
-`
+```
 code block
-`
+```
 
 Inline formating:
 *emphasis*
