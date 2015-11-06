@@ -84,12 +84,15 @@ Ellipsis: ...
 
 HTML entities are allowed: &times;, &#8042; &#x00d3;
 
-These characters are always replaced with HTML entities: <>&/"'
+No other HTML is allowed, these characters are always replaced
+with HTML entities: <>&/"'
 
 Syntax characters can be escaped with a preceding backslash
-in order to allow literal characters, e.g. \' will display
-as a straight single quotation mark instead of an apostrophe
+in order to display literal characters, e.g. \' will be 
+converted to a straight single quotation mark instead of an 
+apostrophe.
 
-Mustof formatting is disabled within code blocks and code-formatted text.
-Any text (except the characters <>&/"') will be displayed verbatim.
+Mustof formatting is disabled within code blocks and 
+code-formatted text. Any text (except the characters <>&/"') 
+will be displayed verbatim.
 ```
