@@ -45,11 +45,11 @@ A blank line indicates a new paragraph,
 a single line break indicates just that.
 
 - Unordered list item
-  - List items are nested with 2 spaces for each level
+  - Indent with 2 spaces for nested lists
 
 1. Ordered list item
 9. Ordered list item with value 9
-  2. Item 9.2, ordered list items are also nested with 2 spaces for each level
+  2. Item 9.2
   -  Ordered an unordered list items can be mixed
 
 |  a table cell             |' left-aligned table header cell
@@ -66,21 +66,30 @@ code block
 `
 
 Inline formating:
- *emphasis*
- !!strong!!
- `code`
- ^superscript^
- _subscript_
- ~small~
- ++inserted++
- ==deleted==
- <<quote with primary quotation marks>>
- ``quote with secondary quotation marks''
+*emphasis*
+!!strong!!
+`code`
+^superscript^
+_subscript_
+~small~
+++inserted++
+==deleted==
+<<quote in primary quotation marks>>
+``quote in secondary quotation marks''
 
 Apostrophe: '
 En dash: --
 Em dash: ---
 Ellipsis: ...
 
-Replaced with HTML entities: <>&/"'
+HTML entities are allowed: &times;, &#8042; &#x00d3;
+
+These characters are always replaced with HTML entities: <>&/"'
+
+Syntax characters can be escaped with a preceding backslash
+in order to allow literal characters, e.g. \' will display
+as a straight single quotation mark instead of an apostrophe
+
+Mustof formatting is disabled within code blocks and code-formatted text.
+Any text (except the characters <>&/"') will be displayed verbatim.
 ```
