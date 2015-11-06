@@ -81,10 +81,10 @@ to this HTML:
     Em dash: ---
     Ellipsis: ...
     
-    HTML entities are allowed: &times;, &#8042; &#x00d3;
+    HTML character entities are allowed: &times;, &#8042; &#x00d3;
     
-    No other HTML is allowed, these characters are always replaced
-    with HTML entities: <>&/"'
+    No other HTML is allowed, the folloring characters are always 
+    replaced with HTML character entities: <>&/"'
     
     Syntax characters can be escaped with a preceding backslash
     in order to display literal characters, e.g. \' will be 
