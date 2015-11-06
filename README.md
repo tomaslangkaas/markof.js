@@ -49,7 +49,7 @@ to this HTML:
     1. Ordered list item
     9. Ordered list item with value 9
       2. Item 9.2
-      -  Ordered an unordered list items can be mixed
+      -  Ordered & unordered list items can be mixed
     
     |  a table cell             |' left-aligned table header cell
     |. right-aligned table cell |, right-aligned table header cell
