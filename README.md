@@ -113,10 +113,10 @@ to this HTML:
 
 ## API
 
-### `markof(markofString [,customFunctions])`
+#### `markof(markofString [,customFunctions])`
 
-### `markof.compact(compactBoolean)`
+#### `markof.compact(compactBoolean)`
 
-### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
+#### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
 
-### `markof.safe(unsafeString)`
+#### `markof.safe(unsafeString)`
