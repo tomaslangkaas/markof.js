@@ -3,7 +3,7 @@
 powerful lightweight markup language & lightweight parser
 
 ## Easily convert ...
-this text with `markof` markup:
+this text of `markof` markup:
 ```
 # Heading
 
@@ -31,6 +31,8 @@ to this HTML:
 
 ## Syntax cheat sheet
 
+    ## Block level formatting
+    
     # Heading level 1
     ## Heading level 2
     ### Heading level 3
@@ -64,7 +66,8 @@ to this HTML:
     code block
     ```
     
-    Inline formating:
+    ## Inline formating
+    
     *emphasis*
     !!strong!!
     `code`
@@ -73,6 +76,19 @@ to this HTML:
     ~small~
     ++inserted++
     ==deleted==
+    
+    ## Links and images
+    
+    {http://www.google.com}[link to google homepage]
+    {http://www.google.com link title}[link to google homepage]
+    {mailto:a@b.c}[send mail to a@b.c]
+    {#fragment}[link to document fragment]
+    {./subdir/file}[relative link]
+    {../parentdir/file}[relative link]
+    {http://urlToImgSrc}[!img alt text]
+    
+    ## Special characters
+    
     <<quote in primary quotation marks>>
     ``quote in secondary quotation marks''
     
@@ -83,7 +99,7 @@ to this HTML:
     
     HTML character entities are allowed: &times;, &#8042; &#x00d3;
     
-    No other HTML is allowed, the folloring characters are always 
+    No other HTML is allowed, the following characters are always 
     replaced with HTML character entities: <>&/"'
     
     Syntax characters can be escaped with a preceding backslash
