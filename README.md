@@ -110,3 +110,13 @@ to this HTML:
     Mustof formatting is disabled within code blocks and 
     code-formatted text. Any text (except the characters <>&/"') 
     will be displayed verbatim.
+
+## API
+
+### `markof(markofString [,customFunctions])`
+
+### `markof.compact(compactBoolean)`
+
+### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
+
+### `markof.safe(unsafeString)`
