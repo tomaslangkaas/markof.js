@@ -134,7 +134,7 @@ Sets the compact flag of `markof` to either true or false. Set to a truthy vaule
 
 ##### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
 
-Sets the characters to be used as quotation marks, defaults to `&ldquo;` and `&rdquo;` for primary quotation marks and `&lsquo;` and `&rsquo;` for secondary quotation marks. Different languages use different characters for this. for an overview, see [this wikipedia article](https://en.wikipedia.org/wiki/Quotation_mark). The function returns the `markof` function, which allows for chaining.
+Sets the characters to be used as quotation marks, defaults to `&ldquo;` and `&rdquo;` for primary quotation marks and `&lsquo;` and `&rsquo;` for secondary quotation marks. Different languages use different characters for this, see [wikipedia](https://en.wikipedia.org/wiki/Quotation_mark) for an overview. The function returns the `markof` function, which allows for chaining.
 
 For falsy arguments, default quotation marks are used. Thus, calling `markof.quotes()` with no arguments resets to the default characters.
 
@@ -149,4 +149,6 @@ Provides access to the internal HTML sanitization function used in markof. This 
 1. All characters after the opening braces `{{` until the first whitespace character or the closing braces are interpreted as an identifier.
 2. If the identifier does not correspond to a property of the `customDataObject`, nothing happens. That is, all syntax, including the double braces, remains in the `markof` HTML output.
 3. If the identifier corresponds to a function of the `customDataObject`, this function is called with any text left in the expression (after a delimiting whitespace character) as a single string argument. The original syntax in the `markof`string is replaced with the return value. This value is not sanitized, the function is responsible for sanitization, possibly using the `markof.safe()` function.
-4. Otherwise, the original syntax in the `markof` string is replaced with the value of the property of the `customDataObject`. Again, this value is not sanitized.
+4. Otherwise, the original syntax in the `markof` string is replaced with the `customDataObject` property value corresponding to the identifier. Again, this value is not sanitized.
+
+The provider of the `customDataObject` is responsible for preventing the object from providing data that is unsafe to inject unprocessed in HTML.
