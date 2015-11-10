@@ -113,10 +113,18 @@ to this HTML:
 
 ## API
 
-#### `markof(markofString [,customFunctions])`
+##### `markof(markofString [,customExpressionsObject])`
 
-#### `markof.compact(compactBoolean)`
+Converts `markofString` to HTML and returns the HTML string. Takes a `customExpressionsObject` as an optional argument, see section about custom expressions.
 
-#### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
+##### `markof.compact(compactBoolean)`
 
-#### `markof.safe(unsafeString)`
+Sets the compact flag of markof to either true or false. Set to true for markof to output HTML without redundant whitespace, set to false for markof to output readable and indented HTML. The flag is by default set to false. The function returns the markof function, which allows for chaining.
+
+##### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
+
+Sets the characters to be used as quotation marks, defaults to `` and `` for primary quotation marks and `` and `` for secondary quotation marks. Different languages use different characters for this, see link.
+
+##### `markof.safe(unsafeString)`
+
+Provides access to the internal HTML sanitization function used in markof. This function replaces the characters `<>&"'/` to their numeric HMTL entities and returns the transformed string. For use in custom expressions.
