@@ -144,7 +144,7 @@ Provides access to the internal HTML sanitization function used in markof. This 
 
 ### Custom expressions
 
-`markof` allows custom expressions in double braces `{{` and `}}` if a `customDataObject` is provided to the parser. This allows for custom functionality, such as data interpolation and more complex templating. `markof` parses text in double braces as follows:
+`markof` allows custom expressions in double braces, `{{` and `}}`, if a `customDataObject` is provided to the parser. This allows for custom functionality, such as data interpolation and more complex templating. `markof` parses text in double braces as follows:
 
 1. All characters after the opening braces `{{` until the first whitespace character or the closing braces are interpreted as an identifier.
 2. If the identifier does not correspond to a property of the `customDataObject`, nothing happens. That is, all syntax, including the double braces, remains in the `markof` HTML output.
