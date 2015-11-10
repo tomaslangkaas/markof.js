@@ -118,7 +118,7 @@ to HTML:
     converted to a straight single quotation mark instead of an 
     apostrophe.
     
-    Mustof formatting is disabled within code blocks and 
+    Markof formatting is disabled within code blocks and 
     code-formatted text. Any text (except the characters <>&/"') 
     will be displayed verbatim.
 
@@ -130,7 +130,7 @@ Converts `markofString` to HTML and returns the HTML string. Takes a `customData
 
 ##### `markof.compact(compactBoolean)`
 
-Sets the compact flag of `markof` to either true or false. Set to a truthy vaule for markof to output HTML without redundant whitespace, set to a falsy for markof to output readable and indented HTML (default). The function returns the `markof` function, which allows for chaining.
+Sets the compact flag of `markof` to either true or false. Set to a truthy value for markof to output HTML without redundant whitespace, set to a falsy valde for markof to output readable and indented HTML (default). The function returns the `markof` function, which allows for chaining.
 
 ##### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
 
