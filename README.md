@@ -3,7 +3,7 @@
 powerful lightweight markup language & lightweight parser
 
 ## Easily convert ...
-this text of `markof` markup:
+`markof` markup:
 ```
 # Heading
 
@@ -13,7 +13,7 @@ Paragraph with *emphasized* text.
 
 Another paragraph with !!strong language!!!
 ```
-to this HTML:
+to HTML:
 ```
 <h1>
  Heading
@@ -28,8 +28,19 @@ to this HTML:
  Another paragraph with <strong>strong language</strong>!
 </p>
 ```
+## `markof` features
 
-## Syntax cheat sheet
+* More lightweight syntax than standard markdown
+* Supports more formatting than standard markdown: small, sup, sub, ins, del, description lists, tables
+* Supports typographic control for easy use of correct quotation marks, apostrophes, en-dash, em-dash and ellipsis.
+* Adopts measures to prevent raw HTML and xss injection
+* Supports custom expressions
+* Lightweight parser (~2.3 kb minified)
+* Runs in any ECMAScript 3 compliant runtime
+* MIT-licensed
+* UMD compatible module wrapper
+
+## `markof` markup syntax cheat sheet
 
     ## Block level formatting
     
