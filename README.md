@@ -140,6 +140,13 @@ For falsy arguments, default quotation marks are used. Thus, calling `markof.quo
 
 ##### `markof.safe(unsafeString)`
 
-Provides access to the internal HTML sanitization function used in markof. This function replaces the characters `<>&"'/` to their numeric HMTL entities and returns the transformed string. For use in custom expressions.
+Provides access to the internal HTML sanitization function used in markof. This function replaces the characters `<>&"'/` with their numeric HMTL entities and returns the transformed string. For use in custom expressions.
 
 ### Custom expressions
+
+`markof` allows custom expressions in double braces `{{` and `}}` if a `customDataObject` is provided to the parser. This allows for custom functionality, such as data interpolation and more complex templating. `markof` parses text in double braces as follows:
+
+1. All characters after the opening braces `{{` until the first whitespace character or the closing braces are interpreted as an identifier.
+2. If the identifier does not correspond to a property of the `customDataObject`, nothing happens. That is, all syntax, including the double braces, remains in the `markof` HTML output.
+3. If the identifier corresponds to a function of the `customDataObject`, this function is called with any text left in the expression (after a delimiting whitespace character) as a single string argument. The original syntax in the `markof`string is replaced with the return value. This value is not sanitized, the function is responsible for sanitization, possibly using the `markof.safe()` function.
+4. Otherwise, the original syntax in the `markof` string is replaced with the value of the property of the `customDataObject`. Again, this value is not sanitized.
