@@ -115,7 +115,7 @@ to this HTML:
 
 ##### `markof(markofString [,customDataObject])`
 
-Converts `markofString` to HTML and returns the HTML string. Takes a `customDataObject` as an optional argument, see the seperate section about custom expressions.
+Converts `markofString` to HTML and returns the HTML string. Takes a `customDataObject` as an optional argument, see the separate section about [custom expressions](#custom-expressions).
 
 ##### `markof.compact(compactBoolean)`
 
@@ -131,4 +131,4 @@ For falsy arguments, default quotation marks are used. Thus, calling `markof.quo
 
 Provides access to the internal HTML sanitization function used in markof. This function replaces the characters `<>&"'/` to their numeric HMTL entities and returns the transformed string. For use in custom expressions.
 
-## Custom expressions
+### Custom expressions
