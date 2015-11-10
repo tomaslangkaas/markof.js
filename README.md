@@ -119,11 +119,11 @@ Converts `markofString` to HTML and returns the HTML string. Takes a `customData
 
 ##### `markof.compact(compactBoolean)`
 
-Sets the compact flag of `markof` to either true or false. Set to a truthy vaule for markof to output HTML without redundant whitespace, set to a falsy for markof to output readable and indented HTML (default). The function returns the markof function, which allows for chaining.
+Sets the compact flag of `markof` to either true or false. Set to a truthy vaule for markof to output HTML without redundant whitespace, set to a falsy for markof to output readable and indented HTML (default). The function returns the `markof` function, which allows for chaining.
 
 ##### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
 
-Sets the characters to be used as quotation marks, defaults to `&ldquo;` and `&rdquo;` for primary quotation marks and `&lsquo;` and `&rsquo;` for secondary quotation marks. Different languages use different characters for this, see [this wikipedia article](https://en.wikipedia.org/wiki/Quotation_mark). The function returns the markof function, which allows for chaining.
+Sets the characters to be used as quotation marks, defaults to `&ldquo;` and `&rdquo;` for primary quotation marks and `&lsquo;` and `&rsquo;` for secondary quotation marks. Different languages use different characters for this. for an overview, see [this wikipedia article](https://en.wikipedia.org/wiki/Quotation_mark). The function returns the `markof` function, which allows for chaining.
 
 For falsy arguments, default quotation marks are used. Thus, calling `markof.quotes()` with no arguments resets to the default characters.
 
