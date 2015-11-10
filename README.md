@@ -123,7 +123,7 @@ Sets the compact flag of markof to either true or false. Set to true for markof 
 
 ##### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
 
-Sets the characters to be used as quotation marks, defaults to `` and `` for primary quotation marks and `` and `` for secondary quotation marks. Different languages use different characters for this, see link.
+Sets the characters to be used as quotation marks, defaults to `&ldquo;` and `&rdquo;` for primary quotation marks and `&lsquo;` and `&rsquo;` for secondary quotation marks. Different languages use different characters for this, see link.
 
 ##### `markof.safe(unsafeString)`
 
