@@ -32,13 +32,13 @@ to HTML:
 
 * More lightweight syntax than standard markdown
 * Supports more formatting than standard markdown: small, sup, sub, ins, del, description lists, tables
-* Supports typographic control for easy use of correct quotation marks, apostrophes, en-dash, em-dash and ellipsis.
-* Adopts measures to prevent raw HTML and xss injection
+* Supports easy entry of typographic punctutation: quotation marks, apostrophe, en dash, em dash and ellipsis.
+* Protects against raw HTML and script injection
 * Supports custom expressions
 * Lightweight parser (~2.3 kb minified)
 * Runs in any ECMAScript 3 compliant runtime
 * MIT-licensed
-* UMD compatible module wrapper
+* Wrapped in UMD - compatible with common module loaders
 
 ## `markof` markup syntax cheat sheet
 
