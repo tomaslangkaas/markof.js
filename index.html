@@ -15,6 +15,15 @@
 <button>About</button>
 <h2>Syntax</h2>
 <h2>Editor</h2>
+<textarea id="markofEditor"></textarea><br>
+<button id="parseButton">Parse</button>
+<pre><code id="markofHTML"></code></pre>
 <h2>About</h2>
+<script src="markof.js"></script>
+<script>
+parseButton.onclick = function(){
+  markofHTML.innerHTML = markof.safe(markof(markofEditor.value))
+}
+</script>
 </body>
 </html>
