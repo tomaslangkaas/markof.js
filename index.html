@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
 <style>
+textarea{
+  width: 50%;
+  height: 15em;
+}
 </style>
 </head>
 <body>
@@ -17,12 +21,12 @@
 <h2>Editor</h2>
 <textarea id="markofEditor"></textarea><br>
 <button id="parseButton">Parse</button>
-<pre><code id="markofHTML"></code></pre>
+<textarea id="markofHTML"></textarea>
 <h2>About</h2>
 <script src="markof.js"></script>
 <script>
 parseButton.onclick = function(){
-  markofHTML.innerHTML = markof.safe(markof(markofEditor.value))
+  markofHTML.value = markof.safe(markof(markofEditor.value))
 }
 </script>
 </body>
