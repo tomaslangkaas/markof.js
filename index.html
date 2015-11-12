@@ -20,7 +20,7 @@ textarea{
 	box-sizing: border-box;
 	width: 100%;
 	height: 20em;
-	overflow: hidden;
+	overflow: auto;
 }
 .col2{
 	width: 50%;
@@ -76,7 +76,7 @@ with a line break.</textarea><br>
 
 var syntaxExamples = {
 	'Lists': '- An item\n  - A subitem, indented with 2 spaces\n  2. A numbered subitem\n- Another item',
-	'Tables': '|\' Table header |, Left-aligned\n| Normal cell with some text |. Left-aligned cell'
+	'Tables': '|\' Table header               |, Right-aligned header\n|  Normal cell with some text |. Right-aligned cell\n|; Centered header            |: Centered cell'
 };
 
 function showExample(){
