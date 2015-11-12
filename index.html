@@ -5,28 +5,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
 <style>
+html{
+	background: #ddd;
+}
+body{
+	font-family: sans-serif;
+	max-width: 50em;
+	padding: 2em;
+	margin: auto;
+	background: #fff;
+}
 textarea{
-  width: 50%;
-  height: 15em;
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 20em;
+	overflow: hidden;
+}
+.col2{
+	width: 50%;
+}
+.inline{
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	*display: inline;
+}
+
+#markofDisplay{
+	padding: 2em;
+	border: 1px solid #ccc;
+}
+table{
+	border-collapse: collapse;
+}
+
+th, td{
+	padding: 1em;
+	border: 1px solid #ccc;
 }
 </style>
 </head>
 <body>
 <h1>markof.js</h1>
 <p>powerful lightweight markup language and parser</p>
-<button>Syntax</button>
-<button>Editor</button>
-<button>About</button>
-<h2>Syntax</h2>
-<h2>Editor</h2>
-<textarea id="markofEditor"></textarea><br>
-<button id="parseButton">Parse</button>
+<div class="container">
+<h3>Syntax examples</h3>
+<div id="examples"></div>
+<div class="col2 inline">
+<h3>Markof markup</h3>
+<textarea id="markofEditor"># Heading
+
+## Subheading
+
+A paragraph.
+
+Another paragraph,
+with a line break.</textarea><br>
+<button id="parseButton">Parse</button><button id="resetButton">Reset</button>
+</div><div class="col2 inline">
+<h3>HTML output</h3>
 <textarea id="markofHTML"></textarea>
-<h2>About</h2>
+</div>
+<h3>Display output</h3>
+<div id="markofDisplay"></div>
+</div>
 <script src="markof.js"></script>
 <script>
-parseButton.onclick = function(){
-  markofHTML.value = markof(markofEditor.value)
+
+var syntaxExamples = {
+	'Lists': '- An item\n  - A subitem, indented with 2 spaces\n  2. A numbered subitem\n- Another item',
+	'Tables': '|\' Table header |, Left-aligned\n| Normal cell with some text |. Left-aligned cell'
+};
+
+function showExample(){
+	setMarkof(syntaxExamples[this.id]);
+}
+
+for(var i in syntaxExamples){
+	var a = document.createElement('button');
+	a.appendChild(document.createTextNode(i));
+	a.id = i;
+	a.onclick = showExample;
+	examples.appendChild(a);
+}
+
+function setMarkof(str){
+	markofDisplay.innerHTML = markofHTML.value = markof(markofEditor.value = str);
+}
+
+(parseButton.onclick = function(){
+  setMarkof(markofEditor.value)
+})();
+
+resetButton.onclick = function(){
+  setMarkof('')
 }
 </script>
 </body>
