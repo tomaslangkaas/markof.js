@@ -16,6 +16,7 @@ body{
 	background: #fff;
 }
 textarea{
+	font-family: monospace;
 	display: block;
 	box-sizing: border-box;
 	width: 100%;
@@ -76,7 +77,9 @@ with a line break.</textarea><br>
 
 var syntaxExamples = {
 	'Lists': '- An item\n  - A subitem, indented with 2 spaces\n  2. A numbered subitem\n- Another item',
-	'Tables': '|\' Table header               |, Right-aligned header\n|  Normal cell with some text |. Right-aligned cell\n|; Centered header            |: Centered cell'
+	'Tables': '|\' Table header               |, Right-aligned header\n|; Centered header            |: Centered cell\n|  Normal cell with some text |. Right-aligned cell',
+	'Typographic_punctuation': "<<'twas in '69, around November--December>>, she said.\n\n<<My mother said ``No ... way!''>>, he said.\n\n<<What the ...>>, she responded, and---tired of talking---turned away.",
+	'Description lists':': musty\n:: having a stale, mouldy, or damp smell\n:: having a stale taste'
 };
 
 function showExample(){
@@ -85,7 +88,7 @@ function showExample(){
 
 for(var i in syntaxExamples){
 	var a = document.createElement('button');
-	a.appendChild(document.createTextNode(i));
+	a.appendChild(document.createTextNode(i.split('_').join(' ')));
 	a.id = i;
 	a.onclick = showExample;
 	examples.appendChild(a);
