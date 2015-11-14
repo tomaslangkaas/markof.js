@@ -50,6 +50,7 @@ markof.js - lightweight markup language & lightweight parser
 	var indent;
 	var functionsObject;
 	var isLink;
+	var compact;
 	
 	function indentFunction(level){
 		return indentSpace.slice(0, level + 1);
@@ -181,7 +182,7 @@ markof.js - lightweight markup language & lightweight parser
 		return ('\n\n'+str)
 			.replace(/\s*$/, '')
 			.replace(regex, handler)
-			.slice(1) +
+			.slice(compact? 1: 0) +
 			closeBlocks(0);
 	}
 	
@@ -194,7 +195,7 @@ markof.js - lightweight markup language & lightweight parser
 	})();
 	
 	(convert['compact'] = function(enabled){
-		indent = enabled?
+		indent = (compact = enabled)?
 			blank:
 			indentFunction;
 		return convert;
