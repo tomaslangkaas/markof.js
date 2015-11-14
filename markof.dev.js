@@ -182,7 +182,7 @@ markof.js - lightweight markup language & lightweight parser
 		return ('\n\n'+str)
 			.replace(/\s*$/, '')
 			.replace(regex, handler)
-			.slice(compact? 1: 0) +
+			.slice(compact? 0: 1) +
 			closeBlocks(0);
 	}
 	
