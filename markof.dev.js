@@ -42,7 +42,7 @@ markof.js - lightweight markup language & lightweight parser
 
 	};
 	
-	var regex = /&\w*;|&#x?[\da-fA-F]*;|\\([\'\"\*!~\^_`\+\-=\.<>#\|\:\[])|(\])|(\s*\n)?(\{\{([^\}\s]*)\s?((?:\\\}|[^\}])*)\}\})|(\s*\n)(?:( *)(\-|(\d+)\.)|(#{1,6})|(\")|(```).*\n((?:[^\n]|\n[^`])*)\n```.*|(\|([\:;\.\,\'])?)|(\:\:?))?(?:\[#([\w_]*)\])? *|( *\|([\:;\.\,\'])? *)|([_\^~\*]|!!|==|\+\+)|(<<|>>|``|\'\'|[<>&\"\'\/]|\-{2,3}|\.{3})|\{((?:#|https?|mailto|\.)[\!#\$&\=\]_~\(-;\?-\[a-z]*) ?([^\}]*)\}\[(\!([^\]]*)\])?|`((?:\\`|[^`])*)`/g;
+	var regex = /&\w*;|&#x?[\da-fA-F]*;|\\([\'\"\*!~\^_`\+\-=\.<>#\|\:\[])|(\])|(\s*\n)?(\{\{([^\}\s]*)\s?((?:\\\}|[^\}])*)\}\})|(\s*\n)(?:( *)(\-|(\d+)\.)|(#{1,6})|(\")|(```).*\n((?:[^\n]|\n[^`])*)\n```.*|(\|([\:;\.\,\'])?)|(\:\:?))?(?:\[(?:#([\w_]*))?(?:\.([\w ]*))?\])? *|( *\|([\:;\.\,\'])? *)|([_\^~\*]|!!|==|\+\+)|(<<|>>|``|\'\'|[<>&\"\'\/]|\-{2,3}|\.{3})|\{((?:#|https?|mailto|\.)[\!#\$&\=\]_~\(-;\?-\[a-z]*) ?([^\}]*)\}\[(\!([^\]]*)\])?|`((?:\\`|[^`])*)`/g;
 	
 	var formatState = {};
 	var openBlocks = [];
@@ -107,40 +107,40 @@ markof.js - lightweight markup language & lightweight parser
 		bracesNewlines, bracesMatch, bracesName, bracesArgs, 
 		newlines, listIndent, listMarker, listInteger, 
 		heading, blockquote, pre, preBody, table, tdType, 
-		dl, blockID, tableCell, tableCellType, 
+		dl, blockID, blockClasses, tableCell, tableCellType, 
 		inlineFormat, replaceChar, hrefSrc, hrefTitle, 
-		isImg, imgAltText, monospace){
+		isImg, imgAltText, monospace, temp){
 		
 		if(newlines){
 			newlines = newlines.split('\n').length - 2;
-			blockID = blockID? ' id="' + blockID + '"':'';
+			temp = (blockID? ' id="'+blockID+'"': '')+(blockClasses? ' class="'+blockClasses+'"': '')
 			return (
 				listMarker?
 					handleNestedBlock(lookup[listMarker] ||'ol',
 						newlines, 'li', 
 						(listIndent || '').length + 1, 
 						lookup[listMarker]? 
-							blockID: 
-							blockID + ' value="' + listInteger + '"'
+							temp: 
+							temp + ' value="' + listInteger + '"'
 						):
 				heading?
 					addBlock('h' + heading.length, 
-						blockID):
+						temp):
 				blockquote?
-					addBlock('blockquote', blockID):
+					addBlock('blockquote', temp):
 				pre?
-					closeBlocks(0) + '\n' + wrap('pre', 
+					closeBlocks(0) + indent(0) + wrap('pre', 
 						wrap('code', 
 							htmlSafe(preBody.replace(/\\`/g,'`')))):
 				dl?
 					handleNestedBlock('dl', newlines, 
-						lookup[dl] || 'dd', 1, blockID): 
+						lookup[dl] || 'dd', 1, temp): 
 				table?
 					handleNestedBlock('table', newlines, 
-						'tr', 1, blockID) + 
+						'tr', 1, temp) + 
 						addCell(tdType):
 				newlines || !openBlocks.length?
-					addBlock('p', blockID):
+					addBlock('p', temp):
 				'<br>'
 				) + indent(openBlocks.length);
 		}
@@ -166,9 +166,10 @@ markof.js - lightweight markup language & lightweight parser
 				(bracesNewlines? closeBlocks(0) + indent(0): '') + 
 				(functionsObject.hasOwnProperty(bracesName)? (
 					functionsObject[bracesName].call?
-					functionsObject[bracesName](bracesArgs):
+					(temp = functionsObject[bracesName](bracesArgs),
+					temp == void(0)? '': temp):
 					functionsObject[bracesName]
-				): bracesMatch):
+				): htmlSafe(bracesMatch)):
 			fullmatch;
 	}
 	
@@ -177,10 +178,10 @@ markof.js - lightweight markup language & lightweight parser
 		formatState = {};
 		functionsObject = functions || {};
 		isLink = 0;
-		return ('\n\n'+str).
-			replace(/\s*$/, '').
-			replace(regex, handler).
-			slice(1) +
+		return ('\n\n'+str)
+			.replace(/\s*$/, '')
+			.replace(regex, handler)
+			.slice(1) +
 			closeBlocks(0);
 	}
 	
