@@ -14,6 +14,7 @@ body{
 	padding: 2em;
 	margin: auto;
 	background: #fff;
+	box-shadow: 0 0 5px 5px #ccc;
 }
 textarea{
 	font-family: monospace;
@@ -55,7 +56,7 @@ th, td{
 <h3>Syntax examples</h3>
 <div id="examples"></div>
 <div class="col2 inline">
-<h3>Markof markup</h3>
+<h3>Markof editor</h3>
 <textarea id="markofEditor"># Heading
 
 ## Subheading
@@ -65,6 +66,7 @@ A paragraph.
 Another paragraph,
 with a line break.</textarea><br>
 <button id="parseButton">Parse</button><button id="resetButton">Reset</button>
+<input type="checkbox" id="compactFlag"> <label for="compactFlag">Compact HTML output</label> 
 </div><div class="col2 inline">
 <h3>HTML output</h3>
 <textarea id="markofHTML"></textarea>
@@ -76,10 +78,14 @@ with a line break.</textarea><br>
 <script>
 
 var syntaxExamples = {
-	'Lists': '- An item\n  - A subitem, indented with 2 spaces\n  2. A numbered subitem\n- Another item',
+	'Headings and paragraphs': "# Heading\n\n## Subheading\n\nA paragraph.\n\nAnother paragraph,\nwith a line break.",
+	'Inline formatting': "## Inline formating\n\n*emphasized* text\n!!strong!! text\n`code`\ntext in ^superscript^\ntext in _subscript_\n~small~ text\n++inserted++ text\n==deleted== text",
+	'Lists': "- An item in an unordered list\n  - A subitem, indented with 2 spaces\n  2. A numbered subitem, demonstrating that ordered and unordered lists can be mixed and nested\n- Another item\n\n3. Countdown in an ordered list,\n2. showing that `markof` provides\n1. control over numbering in ordered lists",
 	'Tables': '|\' Table header               |, Right-aligned header\n|; Centered header            |: Centered cell\n|  Normal cell with some text |. Right-aligned cell',
+	'Blockquote': "\" <<An ounce of practice is worth more than tons of preaching.>> --Mahatma Gandhi",
 	'Typographic_punctuation': "<<'twas in '69, around November--December>>, she said.\n\n<<My mother said ``No ... way!''>>, he said.\n\n<<What the ...>>, she responded, and---tired of talking---turned away.",
-	'Description lists':': musty\n:: having a stale, mouldy, or damp smell\n:: having a stale taste'
+	'Description lists': ": musty\n:: having a stale, mouldy, or damp smell\n:: having a stale taste\n\n: John:\n:: <<How much for the watch?>>\n: James:\n:: <<It's not for sale>>",
+	'Display code': '### Within a monospace block\n\n```\n<strong>\n  language\n</strong>\n```\n\n### In normal text\n\n`<strong>\n  language\n</strong>`'
 };
 
 function showExample(){
@@ -95,7 +101,7 @@ for(var i in syntaxExamples){
 }
 
 function setMarkof(str){
-	markofDisplay.innerHTML = markofHTML.value = markof(markofEditor.value = str);
+	markofDisplay.innerHTML = markofHTML.value = markof.compact(compactFlag.checked)(markofEditor.value = str);
 }
 
 (parseButton.onclick = function(){
