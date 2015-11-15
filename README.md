@@ -123,6 +123,18 @@ Try the [online demo](http://tomaslangkaas.github.io/markof.js/)
     Markof formatting is disabled within code blocks and 
     code-formatted text. Any text (except the characters <>&/"') 
     will be displayed verbatim.
+    
+    ## Block id and classes
+    
+    [#id] Paragraph with id set
+    
+    "[.class] Blockquote with class set
+    
+    -[#id.class1 class2] Unordered list item with id and two classes set
+    
+    The id and class syntax applies to blocks and are placed 
+    immediately after the block identifier syntax. Application is limited
+    to <p>, <li>, <blockquote>, <tr>, <dt>, <dd>, <h1> through <h6>
 
 ## API
 
