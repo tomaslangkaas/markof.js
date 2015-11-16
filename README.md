@@ -40,7 +40,7 @@ to HTML:
 * MIT-licensed
 * Wrapped in UMD - compatible with common module loaders
 
-Try the [online demo](http://tomaslangkaas.github.io/markof.js/)
+Try the [online editor](http://tomaslangkaas.github.io/markof.js/)
 
 ## `markof` markup syntax cheat sheet
 
