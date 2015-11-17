@@ -54,8 +54,6 @@ th, td{
 <p>powerful lightweight markup language and parser</p>
 <p>Source code and documentation on <a href="https://github.com/tomaslangkaas/markof.js">github</a></p>
 <div class="container">
-<h3>Syntax examples</h3>
-<div id="examples"></div>
 <div class="col2 inline">
 <h3>Markof editor</h3>
 <textarea id="markofEditor"># Heading
@@ -67,13 +65,16 @@ A paragraph.
 Another paragraph,
 with a line break.</textarea><br>
 <button id="parseButton">Parse</button><button id="resetButton">Reset</button>
-<input type="checkbox" id="compactFlag"> <label for="compactFlag">Compact HTML output</label> 
+<input type="checkbox" id="compactFlag"> <label for="compactFlag">Compact HTML output</label>
+<h3>Syntax examples</h3>
+<div id="examples"></div>
 </div><div class="col2 inline">
 <h3>HTML output</h3>
 <textarea id="markofHTML"></textarea>
-</div>
 <h3>Display output</h3>
 <div id="markofDisplay"></div>
+</div>
+
 </div>
 <script src="markof.js"></script>
 <script>
