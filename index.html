@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
 <style>
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400italic);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:700);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:700italic);
+
 html{
 	background: #ddd;
 }
@@ -35,7 +40,30 @@ textarea{
 	*display: inline;
 }
 
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+small {
+  font-size: 80%;
+}
+
 #markofDisplay{
+	font-family: "PT Serif";
+	line-height: 1.4em;
+	color: #444;
 	padding: 2em;
 	border: 1px solid #ccc;
 }
