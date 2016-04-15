@@ -38,7 +38,6 @@ to HTML:
 * Lightweight parser (~2.3 kb minified)
 * Runs in any ECMAScript 3 compliant runtime
 * MIT-licensed
-* Wrapped in UMD - compatible with common module loaders
 
 Try the [online editor](http://tomaslangkaas.github.io/markof.js/)
 
@@ -138,27 +137,31 @@ Try the [online editor](http://tomaslangkaas.github.io/markof.js/)
 
 ## API
 
-##### `markof(markofString [,customDataObject])`
+#### Instance creation `markofInstance = markof([customDataObject])`
+
+Creates a new `markof` instance. Takes a `customDataObject` as an optional argument, see the separate section about [custom expressions](#custom-expressions).
+
+##### `markofInstance(markofString [,customDataObject])`
 
 Converts `markofString` to HTML and returns the HTML string. Takes a `customDataObject` as an optional argument, see the separate section about [custom expressions](#custom-expressions).
 
-##### `markof.compact(compactBoolean)`
+##### `markofInstance.compact(compactBoolean)`
 
 Sets the compact flag of `markof` to either true or false. Set to a truthy value for markof to output HTML without redundant whitespace, set to a falsy valde for markof to output readable and indented HTML (default). The function returns the `markof` function, which allows for chaining.
 
-##### `markof.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
+##### `markofInstance.quotes(primaryLeft, primaryRight[, secondaryLeft, secondaryRight])`
 
 Sets the characters to be used as quotation marks, defaults to `&ldquo;` and `&rdquo;` for primary quotation marks and `&lsquo;` and `&rsquo;` for secondary quotation marks. Different languages use different characters for this, see [wikipedia](https://en.wikipedia.org/wiki/Quotation_mark) for an overview. The function returns the `markof` function, which allows for chaining.
 
 For falsy arguments, default quotation marks are used. Thus, calling `markof.quotes()` with no arguments resets to the default characters.
 
-##### `markof.safe(unsafeString)`
+##### `markofInstance.safe(unsafeString)`
 
 Provides access to the internal HTML sanitization function used in markof. This function replaces the characters `<>&"'/` with their numeric HMTL entities and returns the transformed string. For use in custom expressions.
 
 ### Custom expressions
 
-`markof` allows custom expressions in double braces, `{{` and `}}`, if a `customDataObject` is provided to the parser. This allows for custom functionality, such as data interpolation and more complex templating. `markof` parses text in double braces as follows:
+`markof` allows custom expressions in double braces, `{{` and `}}`, if a `customDataObject` is provided at instance creation or to the parser. This allows for custom functionality, such as data interpolation and more complex templating. `markof` parses text in double braces as follows:
 
 1. All characters after the opening braces `{{` until the first whitespace character or the closing braces are interpreted as an identifier.
 2. If the identifier does not correspond to a property of the `customDataObject`, nothing happens. That is, all syntax, including the double braces, remains in the `markof` HTML output.
