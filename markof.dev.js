@@ -2,15 +2,7 @@
 markof.js - lightweight markup language & lightweight parser
 */
 
-(function (root, factory) {
-	if (typeof define === 'function' && define['amd']) {
-		define(factory);
-	} else if (typeof exports === 'object') {
-		module['exports'] = factory;
-	} else {
-		root['markof'] = factory();
-	}
-})(this, function(){
+var markof = function(functionsObject){
 
 	var html = /[<>&\"\'\/]/g;
 	
@@ -48,9 +40,10 @@ markof.js - lightweight markup language & lightweight parser
 	var openBlocks = [];
 	var indentSpace = '\n'+(new Array(99)).join(' ');
 	var indent;
-	var functionsObject;
 	var isLink;
 	var compact;
+	
+	functionsObject = functionsObject || {};
 	
 	function indentFunction(level){
 		return indentSpace.slice(0, level + 1);
@@ -158,7 +151,7 @@ markof.js - lightweight markup language & lightweight parser
 			hrefSrc?
 				(isImg? '<img alt="' + htmlSafe(imgAltText) + 
 					'" src="': ((isLink = 1),'<a href="')) +
-				hrefSrc + '" title="' + htmlSafe(hrefTitle) + '">':
+				hrefSrc + (hrefTitle? '" title="' + htmlSafe(hrefTitle): '') + '">':
 			closeLink?
 				(isLink? ((isLink = 0),'</a>'): ']'):
 			literal?
@@ -177,7 +170,7 @@ markof.js - lightweight markup language & lightweight parser
 	function convert(str, functions){
 		openBlocks = [];
 		formatState = {};
-		functionsObject = functions || {};
+		functionsObject = functions || functionsObject;
 		isLink = 0;
 		return ('\n\n'+str)
 			.replace(/\s*$/, '')
@@ -204,4 +197,4 @@ markof.js - lightweight markup language & lightweight parser
 	convert['safe'] = htmlSafe;
 
 	return convert;
-});
+};
