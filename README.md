@@ -35,7 +35,7 @@ to HTML:
 * Supports easy entry of typographic punctutation: quotation marks, apostrophe, en dash, em dash and ellipsis.
 * Protects against raw HTML and script injection
 * Supports custom expressions
-* Lightweight parser (~2.3 kb minified)
+* Lightweight parser (~2.2 kb minified)
 * Runs in any ECMAScript 3 compliant runtime
 * MIT-licensed
 
